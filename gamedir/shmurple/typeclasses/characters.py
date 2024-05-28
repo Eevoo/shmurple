@@ -12,6 +12,8 @@ from evennia.objects.objects import DefaultCharacter
 
 from .objects import ObjectParent
 
+import random
+
 
 class Character(ObjectParent, DefaultCharacter):
     """
@@ -34,4 +36,16 @@ class Character(ObjectParent, DefaultCharacter):
 
     """
 
-    pass
+    def at_object_creation(self):
+        """
+        Give some basic starting stats
+        """
+        self.db.strength = random.randint(3,18)
+        self.db.dexterity = random.randint(3,18)
+        self.db.intelligence = random.randint(3,18)
+
+    def get_stats(self):
+        """
+        Get the main stats of this character
+        """
+        return self.db.strength, self.db.dexterity, self.db.intelligence

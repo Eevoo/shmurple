@@ -1,11 +1,9 @@
 """Tutorial string stuff"""
 
-class Monster:
-    """Monster tutorial class"""
+from typeclasses.objects import Object
 
-    def __init__(self, key):
-        """Initialize variables"""
-        self.key = key
+class Monster(Object):
+    """Monster tutorial class"""
 
     def move_around(self):
         """Move this monster around"""
