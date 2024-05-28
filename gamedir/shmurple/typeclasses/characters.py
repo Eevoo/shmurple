@@ -7,13 +7,11 @@ is setup to be the "default" character type created by the default
 creation commands.
 
 """
+import random
 
 from evennia.objects.objects import DefaultCharacter
 
 from .objects import ObjectParent
-
-import random
-
 
 class Character(ObjectParent, DefaultCharacter):
     """
