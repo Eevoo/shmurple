@@ -7,6 +7,12 @@ An open source virtual tabletop RPG / MUD world created using evennia so I can g
 1. I can share some GM prep I did so other GMs don't have to prep
 1. (stretch) players can login and see their general location details / rooms / basic interactables with the GM pre-programming what happens if they try to pickup items etc. so we can automate the bookkeeping / slow combat part and instead focus on GM orchestrating story and NPCs and happenstance. Think an MMO but where you have a server staffer / game designer following you live and tweaking the game in direct response to you. 
 
+## Built-in credentials
+
+Username | password | notes
+--- | --- | ---
+Trombone | Patronize-Unmatched4 | Superuser account (email is blank)
+
 ## Development setup from scratch
 
 We want to do docker-based development so we are not fighting with python on windows vs Linux etc. Overall we are following https://www.evennia.com/docs/latest/Setup/Installation.html but with tweaks to help windows folks get up to speed. 
@@ -38,3 +44,7 @@ We want to do docker-based development so we are not fighting with python on win
 1. In the pop up for Windows firewall, enable docker desktop on private networks
     ![firewall-pop-up](image.png)
 1. You should now be inside the evennia container and able to `touch test` a file and see it reflected in your local filesystem
+1. Press Ctrl + D or type `exit` to exit the container and be back in wsl shell
+1. `docker build -t local-shmurple .` to build this dockerfile per https://www.evennia.com/docs/latest/Setup/Installation-Docker.html#create-your-own-game-image
+1. `docker run -it --rm -p 4000:4000 -p 4001:4001 -p 4002:4002 --rm -v ./gamedir:/usr/src/game --user $UID:$GID local-shmurple` and you should have your own local copy of shmurple running
+1. Now you can hit the local web client at `http://localhost:4001/webclient`
