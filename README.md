@@ -13,6 +13,27 @@ Username | password | notes
 --- | --- | ---
 Trombone | Patronize-Unmatched4 | Superuser account (email is blank)
 
+## Code Style
+
+I'm following this for now: https://www.evennia.com/docs/latest/Coding/Evennia-Code-Style.html
+
+### Docstring quick ref
+
+```python
+    """
+    Args
+        argname (freeform type): Description ended with period.
+    Keyword Args:
+        argname (freeform type): Description.
+    Returns/Yields:
+        type: Description.
+    Raises:
+        Exceptiontype: Description.
+    Notes/Note/Examples/Example:
+        Freeform text.
+    """
+```
+
 ## Development setup from scratch
 
 We want to do docker-based development so we are not fighting with python on windows vs Linux etc. Overall we are following https://www.evennia.com/docs/latest/Setup/Installation.html but with tweaks to help windows folks get up to speed. 
@@ -48,3 +69,4 @@ We want to do docker-based development so we are not fighting with python on win
 1. `docker build -t local-shmurple .` to build this dockerfile per https://www.evennia.com/docs/latest/Setup/Installation-Docker.html#create-your-own-game-image
 1. `docker run -it --rm -p 4000:4000 -p 4001:4001 -p 4002:4002 --rm -v ./gamedir:/usr/src/game --user $UID:$GID local-shmurple` and you should have your own local copy of shmurple running
 1. Now you can hit the local web client at `http://localhost:4001/webclient`
+1. Go to the input textbox in the bottom of the window, type in `connect Trombone Patronize-Unmatched4`

@@ -1,0 +1,29 @@
+[MASTER]
+# Specify a configuration file.
+rcfile=.pylintrc
+
+[FORMAT]
+# Maximum number of characters on a single line.
+max-line-length=100
+
+# String used as indentation unit.
+indent-string='    '
+
+[BASIC]
+# Naming style matching correct function names
+function-rgx=[a-z_][a-z0-9_]{2,30}$
+
+# Naming style matching correct variable names
+variable-rgx=[a-z_][a-z0-9_]{2,30}$
+
+# Naming style matching correct constant names
+const-rgx=(([A-Z_][A-Z0-9_]*)|(__.*__))$
+
+# Naming style matching correct class names
+class-rgx=[A-Z][a-zA-Z0-9]+$
+
+
+
+[TYPECHECK]
+# List of modules to be ignored (used for Twisted, Django, etc.)
+ignored-modules=twisted, django, evennia, evennia.contrib
